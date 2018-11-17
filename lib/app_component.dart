@@ -1,20 +1,31 @@
 import 'package:angular/angular.dart';
-import 'package:angular_forms/angular_forms.dart';
 import 'src/Hero.dart';
-import 'src/mock_heroes.dart';
+import 'src/hero_component.dart';
+import 'src/hero_service.dart';
 
 @Component(
   selector: 'my-app',
-  directives: [coreDirectives, formDirectives],
+  directives: [coreDirectives, HeroComponent],
+  providers: [ClassProvider(HeroService)],
   templateUrl: 'app_component.html',
   styleUrls: ['app_component.css']
 )
-class AppComponent {
+class AppComponent implements OnInit {
+  final HeroService _heroService;
   String title = 'Tour of heroes';
-  List<Hero> heroes = mockHeroes;
+  List<Hero> heroes;
   Hero selected;
+
+  AppComponent(this._heroService);
+
+  void ngOnInit() => _getHeroes();
 
   selectHero(Hero hero) {
     this.selected = hero;
   }
+
+  void _getHeroes() {
+    _heroService.getAll().then((heroes) => this.heroes = heroes);
+  }
+
 }
