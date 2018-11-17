@@ -11,5 +11,10 @@ import 'src/mock_heroes.dart';
 )
 class AppComponent {
   String title = 'Tour of heroes';
-  Hero hero = Hero(1, 'Jacky');
+  List<Hero> heroes = mockHeroes;
+  Hero selected;
+
+  selectHero(Hero hero) {
+    this.selected = hero;
+  }
 }
