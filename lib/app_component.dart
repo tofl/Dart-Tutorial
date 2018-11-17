@@ -10,6 +10,6 @@ import 'src/mock_heroes.dart';
   styleUrls: ['app_component.css']
 )
 class AppComponent {
-  var name = 'Tour Of Heroes';
-  List<Hero> heroes = mockHeroes;
+  String title = 'Tour of heroes';
+  Hero hero = Hero(1, 'Jacky');
 }
