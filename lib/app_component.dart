@@ -2,6 +2,7 @@ import 'package:angular/angular.dart';
 import 'src/Hero.dart';
 import 'src/hero_component.dart';
 import 'src/hero_service.dart';
+import 'dart:async';
 
 @Component(
   selector: 'my-app',
@@ -24,8 +25,8 @@ class AppComponent implements OnInit {
     this.selected = hero;
   }
 
-  void _getHeroes() {
-    _heroService.getAll().then((heroes) => this.heroes = heroes);
+  Future<void> _getHeroes() async {
+    this.heroes = await _heroService.getAll();
   }
 
 }
