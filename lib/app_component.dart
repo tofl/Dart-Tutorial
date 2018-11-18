@@ -16,6 +16,7 @@ class AppComponent implements OnInit {
   String title = 'Tour of heroes';
   List<Hero> heroes;
   Hero selected;
+  bool loading = true;
 
   AppComponent(this._heroService);
 
@@ -26,7 +27,8 @@ class AppComponent implements OnInit {
   }
 
   Future<void> _getHeroes() async {
-    this.heroes = await _heroService.getAll();
+    this.heroes = await _heroService.getAllSlowly();
+    loading = false;
   }
 
 }

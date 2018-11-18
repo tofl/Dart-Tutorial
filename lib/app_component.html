@@ -1,4 +1,5 @@
 <h1>{{ title }}</h1>
+<p *ngIf="loading">Retrieving the heroes. Please wait.</p>
 <ul class="heroes">
     <li *ngFor="let hero of heroes" (click)="selectHero(hero)" [class.selected]="selected === hero">
         <span class="badge">{{ hero.id }}</span> {{ hero.name }}
