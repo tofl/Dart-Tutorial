@@ -1,3 +1,6 @@
+# Dart tutorial
+This project aims at understanding how Angular works using Google's Dart programming language.
+
 ## Setup for Development
 
 Welcome to the example app used in the
